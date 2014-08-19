@@ -29,7 +29,7 @@ var MockRequest = require('mockrequest'),
 request.get('/foo', function (err, response, body) {
     // response.statusCode === 200
     // response.headers['content-type'] === 'text/html'
-    // body === '<p>Hello!</p>';
+    // body === '<p>Hello!</p>'
 });
 ```
 
