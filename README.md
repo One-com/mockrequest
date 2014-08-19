@@ -17,7 +17,7 @@ var MockRequest = require('mockrequest'),
         request: {
             method: 'GET',
             url: '/foo'
-        }
+        },
         response: {
             headers: {
                 'Content-Type': 'text/html'
