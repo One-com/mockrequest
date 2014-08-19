@@ -11,7 +11,7 @@ A mock version of the request module for use in tests. It "plays back" a sequenc
 Usage
 -----
 
-```
+```javascript
 var MockRequest = require('mockrequest'),
     request = new MockRequest({
         request: {
