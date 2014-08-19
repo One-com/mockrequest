@@ -1,4 +1,4 @@
-/*global describe, it*/
+/*global describe, it, setImmediate*/
 var expect = require('unexpected'),
     MockRequest = require('../lib/MockRequest'),
     ReadableStream = require('stream').Readable,
