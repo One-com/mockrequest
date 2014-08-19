@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/One-com/node-mockrequest"
+    "url": "git://github.com/One-com/mockrequest"
   },
   "keywords": [
     "mock",
@@ -23,9 +23,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/One-com/node-mockrequest/issues"
+    "url": "https://github.com/One-com/mockrequest/issues"
   },
-  "homepage": "https://github.com/One-com/node-mockrequest",
+  "homepage": "https://github.com/One-com/mockrequest",
   "dependencies": {
     "bufferedstream": "2.6.0",
     "httperrors": "0.5.0",
