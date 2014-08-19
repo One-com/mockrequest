@@ -65,26 +65,24 @@ describe('MockRequest', function () {
         });
     });
 
-    describe.skip('with the response body provided as a readable stream', function () {
-        it('should allow specifying an error as the response property', function (done) {
-            var readableStream = new ReadableStream();
-            readableStream._read = function () {
+    it.skip('should allow specifying the response body as a readable stream', function (done) {
+        var readableStream = new ReadableStream();
+        readableStream._read = function () {
+            setImmediate(function () {
+                readableStream.push('foo');
                 setImmediate(function () {
-                    readableStream.push('foo');
-                    setImmediate(function () {
-                        readableStream.push(null);
-                    });
+                    readableStream.push(null);
                 });
-            };
-            var request = new MockRequest({
-                request: 'POST /blah',
-                response: readableStream
             });
-
-            request.post('/blah', passError(done, function (response, body) {
-                expect(body, 'to equal', 'foo');
-                done();
-            }));
+        };
+        var request = new MockRequest({
+            request: 'POST /blah',
+            response: readableStream
         });
+
+        request.post('/blah', passError(done, function (response, body) {
+            expect(body, 'to equal', 'foo');
+            done();
+        }));
     });
 });
