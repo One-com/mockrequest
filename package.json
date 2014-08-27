@@ -1,6 +1,6 @@
 {
   "name": "mockrequest",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A mock version of the request module for use in tests.",
   "main": "lib/MockRequest.js",
   "scripts": {
