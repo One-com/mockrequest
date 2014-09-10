@@ -52,7 +52,7 @@ describe('MockRequest', function () {
     });
 
     describe('with the response provided as an Error instance', function () {
-        it('should allow specifying an error as the response property', function (done) {
+        it('should pass the error to the callback', function (done) {
             var request = new MockRequest({
                 request: 'POST /blah',
                 response: new Error('ETIMEDOUT')
@@ -62,6 +62,23 @@ describe('MockRequest', function () {
                 expect(err, 'to equal', new Error('ETIMEDOUT'));
                 done();
             });
+        });
+
+        it('should not emit the response event', function (done) {
+            var request = new MockRequest({
+                request: 'POST /blah',
+                response: new Error('ETIMEDOUT')
+            });
+
+            request
+                .post('/blah')
+                .on('response', function () {
+                    done(new Error('response event emitted'));
+                })
+                .on('error', function (err) {
+                    expect(err, 'to equal', new Error('ETIMEDOUT'));
+                    setImmediate(done);
+                });
         });
     });
 
